@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cien Shop</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* ===== SAVE ===== */
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ===== ADD TO CART ===== */
+function addToCart(name, price, img){
+
+    let item = cart.find(p => p.name === name);
+
+    if(item){
+        item.quantity++;
+    }else{
+        cart.push({ name, price, img, quantity: 1 });
+    }
+
+    saveCart();
+    alert("Đã thêm vào giỏ hàng 🛒");
+}
+
+/* ===== PAGINATION (FIXED) ===== */
+function showPage(page){
+
+    let products = document.querySelectorAll(".product");
+
+    products.forEach(p => {
+
+        if(p.classList.contains("page" + page)){
+            p.style.display = "block";
+        }else{
+            p.style.display = "none";
+        }
+    });
+}
+
+/* ===== INIT ===== */
+window.onload = function(){
+    showPage(1);
+};
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <a href="trangchu.html"><h1>Cien Shop</h1></a>
+
+    <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm">
+        <span>🔍</span>
+    </div>
+
+    <div class="header-right">
+        <a href="dangnhap.html">👤</a>
+        ❤️
+        <a href="giohang.html">🛒</a>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm ▼</a>
+                <ul class="submenu">
+                    <li><a href="nuochoanam.html">Nước hoa nam</a></li>
+                    <li><a href="nuochoanu.html">Nước hoa nữ</a></li>
+                    <li><a href="unisex.html">Unisex</a></li>
+                </ul>
+            </li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <li><a href="labthuchanh.html">Lab thực hành</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- BANNER -->
+<div class="banner">
+    <img src="./img/banner.jpg">
+</div>
+
+<h2 class="title">UNISEX</h2>
+
+<div class="product-list">
+
+    <!-- PAGE 1 -->
+    <div class="product page1">
+        <img src="./img/unisex1.jpg">
+        <h3>Gucci Mémoire</h3>
+        <p class="price">2.500.000đ</p>
+        <button onclick="addToCart('Gucci Memoire', 2500000,'./img/unisex1.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page1">
+        <img src="./img/unisex2.jpg">
+        <h3>Tom Ford Black Orchid</h3>
+        <p class="price">1.500.000đ</p>
+        <button onclick="addToCart('Tom Ford Black Orchid', 1500000,'./img/unisex2.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page1">
+        <img src="./img/unisex3.jpg">
+        <h3>Black Orchid EDP</h3>
+        <p class="price">3.500.000đ</p>
+        <button onclick="addToCart('Black Orchid EDP', 3500000,'./img/unisex3.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page1">
+        <img src="./img/unisex4.jpg">
+        <h3>Louis Vuitton Lovers</h3>
+        <p class="price">9.800.000đ</p>
+        <button onclick="addToCart('Louis Vuitton Lovers', 9800000,'./img/unisex4.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page1">
+        <img src="./img/unisex5.jpg">
+        <h3>Le Labo Santal 33</h3>
+        <p class="price">5.500.000đ</p>
+        <button onclick="addToCart('Santal 33', 5500000,'./img/unisex5.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page1">
+        <img src="./img/unisex6.jpg">
+        <h3>Obsidian Oud</h3>
+        <p class="price">7.500.000đ</p>
+        <button onclick="addToCart('Obsidian Oud', 7500000,'./img/unisex6.jpg')">Mua ngay</button>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="product page2">
+        <img src="./img/unisex7.jpg">
+        <h3>Diptyque L’eau Papier</h3>
+        <p class="price">2.300.000đ</p>
+        <button onclick="addToCart('Diptyque Papier', 2300000,'./img/unisex7.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page2">
+        <img src="./img/unisex8.jpg">
+        <h3>LV Les Sables Roses</h3>
+        <p class="price">10.300.000đ</p>
+        <button onclick="addToCart('LV Roses', 10300000,'./img/unisex8.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page2">
+        <img src="./img/unisex9.jpg">
+        <h3>Hermès Jardin Sur Le Nil</h3>
+        <p class="price">4.200.000đ</p>
+        <button onclick="addToCart('Hermes Nil', 4200000,'./img/unisex9.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page2">
+        <img src="./img/unisex10.jpg">
+        <h3>Xerjoff Accento</h3>
+        <p class="price">5.200.000đ</p>
+        <button onclick="addToCart('Xerjoff Accento', 5200000,'./img/unisex10.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page2">
+        <img src="./img/unisex11.jpg">
+        <h3>Hermès L’Ombre</h3>
+        <p class="price">2.900.000đ</p>
+        <button onclick="addToCart('Hermes Ombre', 2900000,'./img/unisex11.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product page2">
+        <img src="./img/unisex12.jpg">
+        <h3>Roja Parfums Aoud</h3>
+        <p class="price">11.900.000đ</p>
+        <button onclick="addToCart('Roja Aoud', 11900000,'./img/unisex12.jpg')">Mua ngay</button>
+    </div>
+
+</div>
+
+<!-- PAGINATION -->
+<div class="pagination">
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+</div>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <p>Cien Shop</p>
+        </div>
+
+        <div>
+            <h3>THÔNG TIN LIÊN HỆ</h3>
+            <div class="small">
+                <b>Chi nhánh 1:</b> 10 Nguyễn Trãi, Q5<br>
+                Hotline: 1245543<br><br>
+
+                <b>Chi nhánh 2:</b> 23 Nguyễn Huệ, Q1<br>
+                Hotline: 1245543<br><br>
+
+                Email: cien@nuochoa.com.vn
+            </div>
+        </div>
+
+        <div>
+            <h3>CHÍNH SÁCH</h3>
+            <ul>
+                <li>Bảo mật thông tin</li>
+                <li>Thanh toán</li>
+                <li>Điều khoản</li>
+                <li>Vận chuyển</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>HỖ TRỢ</h3>
+            <ul>
+                <li>Tìm kiếm</li>
+                <li>Đăng nhập</li>
+                <li>Đăng ký</li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+</body>
+</html>

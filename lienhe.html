@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liên hệ - Cien Shop</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.contact-container{
+    display:flex;
+    gap:30px;
+    padding:20px;
+}
+
+.contact-box{
+    flex:1;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+}
+
+.contact-box input,
+.contact-box textarea{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.contact-box button{
+    padding:10px 15px;
+    background:black;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+.contact-box button:hover{
+    opacity:0.85;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <a href="trangchu.html"><h1>Cien Shop</h1></a>
+
+    <div class="search-box">
+        <input type="text" placeholder="tìm kiếm">
+        <span>🔍</span>
+    </div>
+
+    <div class="header-right">
+        <a href="dangnhap.html">👤</a>
+        ❤️
+        <a href="giohang.html">🛒</a>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm ▼</a>
+                <ul class="submenu">
+                    <li><a href="nuochoanam.html">Nước hoa nam</a></li>
+                    <li><a href="nuochoanu.html">Nước hoa nữ</a></li>
+                    <li><a href="unisex.html">Unisex</a></li>
+                </ul>
+            </li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <li><a href="labthuchanh.html">Lab thực hành</a></li>
+        </ul>
+    </nav>
+</header>
+
+<h2 class="title">LIÊN HỆ</h2>
+
+<div class="contact-container">
+
+    <!-- FORM -->
+    <div class="contact-box">
+        <h3>Gửi tin nhắn</h3>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Họ tên" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="phone" placeholder="Số điện thoại">
+            <textarea id="message" placeholder="Nội dung..." rows="5"></textarea>
+
+            <button type="submit">Gửi</button>
+        </form>
+    </div>
+
+    <!-- INFO -->
+    <div class="contact-box">
+        <h3>Thông tin liên hệ</h3>
+
+        <p>📍 <b>Địa chỉ:</b> 10 Nguyễn Trãi, Q5, TP.HCM</p>
+        <p>📞 <b>Hotline:</b> 0123456789</p>
+        <p>✉ <b>Email:</b> cien@nuochoa.com.vn</p>
+        <p>⏰ <b>Giờ mở cửa:</b> 8:00 - 22:00</p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <p>Cien Shop</p>
+        </div>
+
+        <div>
+            <h3>THÔNG TIN LIÊN HỆ</h3>
+            <div class="small">
+                <b>Chi nhánh 1:</b> 10 Nguyễn Trãi, Q5<br>
+                Hotline: 1245543<br><br>
+
+                <b>Chi nhánh 2:</b> 23 Nguyễn Huệ, Q1<br>
+                Hotline: 1245543<br><br>
+
+                Email: cien@nuochoa.com.vn
+            </div>
+        </div>
+
+        <div>
+            <h3>CHÍNH SÁCH</h3>
+            <ul>
+                <li>Bảo mật thông tin</li>
+                <li>Thanh toán</li>
+                <li>Điều khoản</li>
+                <li>Vận chuyển</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>HỖ TRỢ</h3>
+            <ul>
+                <li>Tìm kiếm</li>
+                <li>Đăng nhập</li>
+                <li>Đăng ký</li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+
+    if(name === ""){
+        alert("Vui lòng nhập họ tên!");
+        return;
+    }
+
+    alert("Cảm ơn " + name + " đã liên hệ!");
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Đăng ký - Cien Shop</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="trangchu.html">
+        <h1>Cien Shop</h1>
+    </a>
+
+    <div class="search-box">
+        <input type="text" placeholder="tìm kiếm">
+        <span>🔍</span>
+    </div>
+
+    <div class="header-right">
+        ⋯
+        <a href="dangnhap.html">👤</a>
+        ❤️
+        <a href="giohang.html">🛒</a>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm ▼</a>
+                <ul class="submenu">
+                    <li><a href="nuochoanam.html">Nước hoa nam</a></li>
+                    <li><a href="nuochoanu.html">Nước hoa nữ</a></li>
+                    <li><a href="unisex.html">Unisex</a></li>
+                </ul>
+            </li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <li><a href="labthuchanh.html">Lab thực hành</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- REGISTER -->
+<div class="login-wrapper">
+
+    <div class="login-box">
+
+        <h2>Đăng ký</h2>
+
+        <form onsubmit="register(event)">
+
+            <input id="user" type="text" placeholder="Tên đăng nhập" required>
+
+            <input id="pass" type="password" placeholder="Mật khẩu" required>
+
+            <input id="repass" type="password" placeholder="Nhập lại mật khẩu" required>
+
+            <button type="submit">Tạo tài khoản</button>
+
+        </form>
+
+        <a href="dangnhap.html">
+            <button class="register-btn">Đăng nhập</button>
+        </a>
+
+    </div>
+
+</div>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <p>Cien Shop</p>
+        </div>
+
+        <div>
+            <h3>THÔNG TIN LIÊN HỆ</h3>
+            <div class="small">
+                <b>Chi nhánh 1:</b> 10 Nguyễn Trãi, Q5<br>
+                Hotline: 1245543<br><br>
+
+                <b>Chi nhánh 2:</b> 23 Nguyễn Huệ, Q1<br>
+                Hotline: 1245543<br><br>
+
+                Email: cien@nuochoa.com.vn
+            </div>
+        </div>
+
+        <div>
+            <h3>CHÍNH SÁCH</h3>
+            <ul>
+                <li>Bảo mật thông tin</li>
+                <li>Thanh toán</li>
+                <li>Điều khoản</li>
+                <li>Vận chuyển</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>HỖ TRỢ</h3>
+            <ul>
+                <li>Tìm kiếm</li>
+                <li>Đăng nhập</li>
+                <li>Đăng ký</li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+<script>
+
+/* ================= REGISTER ================= */
+function register(event){
+    event.preventDefault();
+
+    let user = document.getElementById("user").value.trim();
+    let pass = document.getElementById("pass").value.trim();
+    let repass = document.getElementById("repass").value.trim();
+
+    // check rỗng
+    if(!user || !pass || !repass){
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
+    }
+
+    // check mật khẩu
+    if(pass.length < 3){
+        alert("Mật khẩu quá ngắn!");
+        return;
+    }
+
+    // check confirm pass
+    if(pass !== repass){
+        alert("❌ Mật khẩu không khớp!");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // check trùng user
+    let exist = users.some(u => u.user === user);
+
+    if(exist){
+        alert("❌ Tài khoản đã tồn tại!");
+        return;
+    }
+
+    // thêm user mới
+    users.push({
+        user: user,
+        pass: pass
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("🎉 Đăng ký thành công!");
+
+    window.location.href = "dangnhap.html";
+}
+
+</script>
+</body>
+</html>

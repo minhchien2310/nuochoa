@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thanh toán - Cien Shop</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+    <a href="trangchu.html">
+        <h1>Cien Shop</h1>
+    </a>
+
+    <div class="search-box">
+        <input type="text" placeholder="tìm kiếm">
+        <span>🔍</span>
+    </div>
+
+    <div class="header-right">
+        ⋯
+        <a href="dangnhap.html">👤</a>
+        ❤️
+        <a href="giohang.html">🛒</a>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm ▼</a>
+                <ul class="submenu">
+                    <li><a href="nuochoanam.html">Nước hoa nam</a></li>
+                    <li><a href="nuochoanu.html">Nước hoa nữ</a></li>
+                    <li><a href="unisex.html">Unisex</a></li>
+                </ul>
+            </li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <li><a href="labthuchanh.html">Lab thực hành</a></li>
+        </ul>
+    </nav>
+</header>
+
+<h1 class="title">💳 THANH TOÁN</h1>
+
+<div class="checkout-container">
+
+    <!-- FORM -->
+    <div class="checkout-form">
+
+        <form id="checkoutForm">
+
+            <input type="text" placeholder="Họ và tên" required>
+            <input type="text" placeholder="Số điện thoại" required>
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Địa chỉ giao hàng" required>
+
+            <textarea rows="4" placeholder="Ghi chú"></textarea>
+
+            <h3>Phương thức thanh toán</h3>
+
+            <label><input type="radio" name="pay" checked> COD</label>
+            <label><input type="radio" name="pay"> Chuyển khoản</label>
+            <label><input type="radio" name="pay"> Momo</label>
+
+            <button type="submit">Xác nhận thanh toán</button>
+
+        </form>
+
+    </div>
+
+    <!-- CART -->
+    <div class="checkout-cart">
+        <h2>Đơn hàng</h2>
+        <div id="checkout-box"></div>
+    </div>
+
+</div>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <p>Cien Shop</p>
+        </div>
+
+        <div>
+            <h3>THÔNG TIN LIÊN HỆ</h3>
+            <div class="small">
+                <b>Chi nhánh 1:</b> 10 Nguyễn Trãi, Q5<br>
+                Hotline: 1245543<br><br>
+
+                <b>Chi nhánh 2:</b> 23 Nguyễn Huệ, Q1<br>
+                Hotline: 1245543<br><br>
+
+                Email: cien@nuochoa.com.vn
+            </div>
+        </div>
+
+        <div>
+            <h3>CHÍNH SÁCH</h3>
+            <ul>
+                <li>Bảo mật thông tin</li>
+                <li>Thanh toán</li>
+                <li>Điều khoản</li>
+                <li>Vận chuyển</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>HỖ TRỢ</h3>
+            <ul>
+                <li>Tìm kiếm</li>
+                <li>Đăng nhập</li>
+                <li>Đăng ký</li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const box = document.getElementById("checkout-box");
+
+function renderCheckout(){
+
+    if(!box) return;
+
+    box.innerHTML = "";
+
+    if(!cart || cart.length === 0){
+        box.innerHTML = `
+        <div style="text-align:center;padding:20px">
+            <h3>🛒 Giỏ hàng trống</h3>
+            <a href="trangchu.html">
+                <button>Mua sắm ngay</button>
+            </a>
+        </div>`;
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        let price = Number(item.price);
+        let qty = Number(item.quantity);
+
+        total += price * qty;
+
+        box.innerHTML += `
+        <div style="display:flex;gap:10px;align-items:center;margin:10px 0;padding:10px;background:#fff;border-radius:10px">
+
+            <img src="${item.img}" width="60" style="border-radius:8px">
+
+            <div>
+                <b>${item.name}</b>
+                <p>${qty} x ${price.toLocaleString()}đ</p>
+            </div>
+
+        </div>`;
+    });
+
+    box.innerHTML += `
+    <div style="text-align:right;font-size:18px;font-weight:bold;color:red;margin-top:10px">
+        Tổng: ${total.toLocaleString()}đ
+    </div>`;
+}
+
+/* INIT */
+renderCheckout();
+
+/* SUBMIT */
+document.getElementById("checkoutForm").addEventListener("submit", e => {
+
+    e.preventDefault();
+
+    if(!cart || cart.length === 0){
+        alert("Giỏ hàng trống!");
+        return;
+    }
+
+    alert("🎉 Thanh toán thành công!");
+
+    localStorage.removeItem("cart");
+    cart = [];
+
+    window.location.href = "trangchu.html";
+});
+
+</script>
+
+</body>
+</html>

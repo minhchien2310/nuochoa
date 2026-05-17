@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Nước Hoa</title>
+</head>
+<body>
+
+<header>
+    <a href="trangchu.html">
+        <h1>Cien Shop</h1>
+    </a>
+
+    <div class="search-box">
+        <input type="text" placeholder="tìm kiếm">
+        <span>🔍</span>
+    </div>
+
+    <div class="header-right">
+        ⋯
+        <a href="dangnhap.html">👤</a>
+        ❤️
+        <a href="giohang.html">🛒</a>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm ▼</a>
+                <ul class="submenu">
+                    <li><a href="nuochoanam.html">Nước hoa nam</a></li>
+                    <li><a href="nuochoanu.html">Nước hoa nữ</a></li>
+                    <li><a href="unisex.html">Unisex</a></li>
+                </ul>
+            </li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <li><a href="labthuchanh.html">Lab thực hành</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<!-- BANNER -->
+<div class="banner">
+    <img src="./img/banner.jpg" alt="">
+</div>
+
+<!-- DANH MỤC -->
+<h2 class="title">SẢN PHẨM</h2>
+
+<div class="category-list">
+
+    <div class="card">
+        <img src="./img/nuochoanam.jpg" alt="Nước hoa nam">
+        <h3>NƯỚC HOA NAM</h3>
+        <p>(23 sản phẩm)</p>
+    </div>
+
+    <div class="card">
+        <img src="./img/nuochoanu.jpg" alt="Nước hoa nữ">
+        <h3>NƯỚC HOA NỮ</h3>
+        <p>(20 sản phẩm)</p>
+    </div>
+
+    <div class="card">
+        <img src="./img/unisex.jpg" alt="Unisex">
+        <h3>UNISEX</h3>
+        <p>(10 sản phẩm)</p>
+    </div>
+</div>
+
+<!-- NAM -->
+<h2 class="title">NƯỚC HOA NAM</h2>
+<div class="product-list">
+
+    <div class="product">
+        <img src="./img/nam1.jpg">
+        <h3>Bleu De Chanel</h3>
+        <p class="price">5.500.000đ</p>
+        <button onclick="addToCart('Bleu De Chanel', 5500000,'./img/nam1.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nam2.jpg">
+        <h3>Jean Paul Gaultier</h3>
+        <p class="price">6.500.000đ</p>
+        <button onclick="addToCart('Jean Paul Gaultier', 6500000,'./img/nam2.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nam3.jpg">
+        <h3>Acqua di Giò</h3>
+        <p class="price">3.500.000đ</p>
+        <button onclick="addToCart('Acqua di Giò', 3500000,'./img/nam3.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nam4.jpg">
+        <h3>Versace Eros</h3>
+        <p class="price">2.500.000đ</p>
+        <button onclick="addToCart('Versace Eros', 2500000,'./img/nam4.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nam5.jpg">
+        <h3>Creed Aventus</h3>
+        <p class="price">8.500.000đ</p>
+        <button onclick="addToCart('Creed Aventus', 8500000,'./img/nam5.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nam6.jpg">
+        <h3>Nautica</h3>
+        <p class="price">4.500.000đ</p>
+        <button onclick="addToCart('Nautica', 4500000,'./img/nam6.jpg')">Mua ngay</button>
+    </div>
+
+</div>
+
+<!-- NỮ -->
+<h2 class="title">NƯỚC HOA NỮ</h2>
+<div class="product-list">
+
+    <div class="product">
+        <img src="./img/nu1.jpg">
+        <h3>Chanel Chance</h3>
+        <p class="price">4.500.000đ</p>
+        <button onclick="addToCart('Chanel Chance', 4500000,'./img/nu1.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nu2.jpg">
+        <h3>YSL Libre</h3>
+        <p class="price">3.500.000đ</p>
+        <button onclick="addToCart('YSL Libre', 3500000,'./img/nu2.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nu3.jpg">
+        <h3>Coco Mademoiselle</h3>
+        <p class="price">6.500.000đ</p>
+        <button onclick="addToCart('Coco Mademoiselle', 6500000,'./img/nu3.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nu4.jpg">
+        <h3>Dior J'adore</h3>
+        <p class="price">5.800.000đ</p>
+        <button onclick="addToCart('Dior Jadore', 5800000,'./img/nu4.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nu5.jpg">
+        <h3>Miss Dior</h3>
+        <p class="price">4.500.000đ</p>
+        <button onclick="addToCart('Miss Dior', 4500000,'./img/nu5.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/nu6.jpg">
+        <h3>Prada Paradoxe</h3>
+        <p class="price">7.500.000đ</p>
+        <button onclick="addToCart('Prada Paradoxe', 7500000,'./img/nu6.jpg')">Mua ngay</button>
+    </div>
+
+</div>
+
+<!-- UNISEX -->
+<h2 class="title">UNISEX</h2>
+<div class="product-list">
+
+    <div class="product">
+        <img src="./img/unisex1.jpg">
+        <h3>Gucci Mémoire</h3>
+        <p class="price">2.500.000đ</p>
+        <button onclick="addToCart('Gucci Mémoire', 2500000,'./img/unisex1.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/unisex2.jpg">
+        <h3>Tom Ford Black Orchid</h3>
+        <p class="price">1.500.000đ</p>
+        <button onclick="addToCart('Tom Ford Black Orchid', 1500000,'./img/unisex2.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/unisex3.jpg">
+        <h3>Black Orchid EDP</h3>
+        <p class="price">3.500.000đ</p>
+        <button onclick="addToCart('Black Orchid EDP', 3500000,'./img/unisex3.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/unisex4.jpg">
+        <h3>Louis Vuitton Lovers</h3>
+        <p class="price">9.800.000đ</p>
+        <button onclick="addToCart('LV Lovers', 9800000,'./img/unisex4.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/unisex5.jpg">
+        <h3>Le Labo Santal 33</h3>
+        <p class="price">5.500.000đ</p>
+        <button onclick="addToCart('Santal 33', 5500000,'./img/unisex5.jpg')">Mua ngay</button>
+    </div>
+
+    <div class="product">
+        <img src="./img/unisex6.jpg">
+        <h3>Obsidian Oud</h3>
+        <p class="price">7.500.000đ</p>
+        <button onclick="addToCart('Obsidian Oud', 7500000,'./img/unisex6.jpg')">Mua ngay</button>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <p>Cien Shop</p>
+        </div>
+
+        <div>
+            <h3>THÔNG TIN LIÊN HỆ</h3>
+            <div class="small">
+                <b>Chi nhánh 1:</b> 10 Nguyễn Trãi, Q5<br>
+                Hotline: 1245543<br><br>
+
+                <b>Chi nhánh 2:</b> 23 Nguyễn Huệ, Q1<br>
+                Hotline: 1245543<br><br>
+
+                Email: cien@nuochoa.com.vn
+            </div>
+        </div>
+
+        <div>
+            <h3>CHÍNH SÁCH</h3>
+            <ul>
+                <li>Bảo mật thông tin</li>
+                <li>Thanh toán</li>
+                <li>Điều khoản</li>
+                <li>Vận chuyển</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>HỖ TRỢ</h3>
+            <ul>
+                <li>Tìm kiếm</li>
+                <li>Đăng nhập</li>
+                <li>Đăng ký</li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(name, price, img){
+
+    let item = cart.find(p => p.name === name);
+
+    if(item){
+        item.quantity++;
+    }else{
+        cart.push({name, price, img, quantity:1});
+    }
+
+    saveCart();
+    alert("Đã thêm vào giỏ hàng 🛒");
+}
+
+</script>
+
+</body>
+</html>

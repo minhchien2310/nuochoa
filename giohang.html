@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giỏ hàng - Cien Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <a href="trangchu.html">
+        <h1>Cien Shop</h1>
+    </a>
+
+    <div class="search-box">
+        <input type="text" placeholder="tìm kiếm">
+        <span>🔍</span>
+    </div>
+
+    <div class="header-right">
+        ⋯
+        <a href="dangnhap.html">👤</a>
+        ❤️
+        <a href="giohang.html">🛒</a>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="trangchu.html">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm ▼</a>
+                <ul class="submenu">
+                    <li><a href="nuochoanam.html">Nước hoa nam</a></li>
+                    <li><a href="nuochoanu.html">Nước hoa nữ</a></li>
+                    <li><a href="unisex.html">Unisex</a></li>
+                </ul>
+            </li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <li><a href="labthuchanh.html">Lab thực hành</a></li>
+        </ul>
+    </nav>
+</header>
+
+<h2 class="title">🛒 GIỎ HÀNG</h2>
+
+<div id="cart-box" class="cart-container"></div>
+
+<div class="back-home">
+    <a href="trangchu.html">← Tiếp tục mua hàng</a>
+</div>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <p>Cien Shop</p>
+        </div>
+
+        <div>
+            <h3>THÔNG TIN LIÊN HỆ</h3>
+            <div class="small">
+                <b>Chi nhánh 1:</b> 10 Nguyễn Trãi, Q5<br>
+                Hotline: 1245543<br><br>
+
+                <b>Chi nhánh 2:</b> 23 Nguyễn Huệ, Q1<br>
+                Hotline: 1245543<br><br>
+
+                Email: cien@nuochoa.com.vn
+            </div>
+        </div>
+
+        <div>
+            <h3>CHÍNH SÁCH</h3>
+            <ul>
+                <li>Bảo mật thông tin</li>
+                <li>Thanh toán</li>
+                <li>Điều khoản</li>
+                <li>Vận chuyển</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>HỖ TRỢ</h3>
+            <ul>
+                <li>Tìm kiếm</li>
+                <li>Đăng nhập</li>
+                <li>Đăng ký</li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* SAVE */
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* REMOVE */
+function removeItem(index){
+    cart.splice(index,1);
+    saveCart();
+    renderCart();
+}
+
+/* CHANGE QTY */
+function changeQty(index,type){
+
+    if(type === "plus"){
+        cart[index].quantity++;
+    }else{
+        cart[index].quantity--;
+
+        if(cart[index].quantity <= 0){
+            cart.splice(index,1);
+        }
+    }
+
+    saveCart();
+    renderCart();
+}
+
+/* RENDER */
+function renderCart(){
+
+    const box = document.getElementById("cart-box");
+    box.innerHTML = "";
+
+    if(!cart || cart.length === 0){
+        box.innerHTML = `
+        <div class="empty-cart">
+            <h2>🛒 Giỏ hàng trống</h2>
+            <a href="trangchu.html">
+                <button>Mua ngay</button>
+            </a>
+        </div>`;
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item,i)=>{
+
+        let price = Number(item.price);
+        total += price * item.quantity;
+
+        box.innerHTML += `
+        <div class="cart-item">
+
+            <img src="${item.img}" width="80">
+
+            <div class="cart-info">
+                <h3>${item.name}</h3>
+                <p>${price.toLocaleString()}đ</p>
+
+                <div>
+                    <button onclick="changeQty(${i},'minus')">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="changeQty(${i},'plus')">+</button>
+                </div>
+            </div>
+
+            <button onclick="removeItem(${i})">Xóa</button>
+
+        </div>`;
+    });
+
+    box.innerHTML += `
+    <div class="cart-total">
+        <h2>Tổng: ${total.toLocaleString()}đ</h2>
+        <a href="thanhtoan.html">
+            <button>Thanh toán</button>
+        </a>
+    </div>`;
+}
+
+renderCart();
+
+</script>
+
+</body>
+</html>
